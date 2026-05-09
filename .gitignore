@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+gpu-server/.certs/
+
+# Swift
+.build/
+*.app/
+*.xcodeproj/
+*.xcworkspace/
+
+# macOS
+.DS_Store
+
+# AI tool configs (contain secrets/paths)
+.claude/
+.qwen/
+
+# IDE
+.vscode/
+
+# AI planning docs (internal)
+docs/superpowers/
+
+# Backups
+*.orig
+*.bak
