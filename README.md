@@ -118,6 +118,19 @@ cd gpu-watts && swift run
         └── TrustIgnoringDelegate.swift  # Self-signed cert handling
 ```
 
+## Security
+
+The macOS client uses a `TrustIgnoringDelegate` that **blindly trusts any TLS certificate**, including self-signed ones. This is convenient for local development but means:
+
+- The connection is **vulnerable to MITM attacks** on untrusted networks.
+- The server's identity is **not verified** — any endpoint presenting a valid TLS handshake will be accepted.
+
+**This is intended for local/trusted networks only.** Do not route traffic through untrusted networks (e.g., the public internet) without replacing the delegate with proper certificate pinning or a trusted CA-issued certificate.
+
+## Changelog
+
+- **2026-05-09** — Initial release
+
 ## Example
 Shows the usage for what GPUs you have along with the last 5 results from the API.
 ![ExampleImage](nvidiasmi-macos-monitor.png)
